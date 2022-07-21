@@ -18,15 +18,19 @@
     <div>
         <form class="form-control" method="POST">
             {% csrf_token %}
-            <legend>New User Registration</legend>
+            <fieldset>
+                <legend>New User Registration</legend>
+                {{ form }}
+            </fieldset>
             
-            {{ form }}
-
-            <button class="btn btn-outline-info" type="submit">Create Account</button>
+            
+            <div>
+                <button class="btn btn-outline-info" type="submit">Create Account</button>
+            </div>
         </form>
-        <div>
-            <small class="border-top pt-3">
-                Already have an account? <a class="ml-2" href="#"></a>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Already have an account? <a class="ml-2" href="#">Sign In</a>
             </small>
         </div>
     </div>
