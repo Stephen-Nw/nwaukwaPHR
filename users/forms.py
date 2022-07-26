@@ -6,4 +6,4 @@ from .models import NewUser
 class NewUserForm(UserCreationForm):
     class Meta:
         model = NewUser
-        fields = "___all__"
+        fields = "__all__"
