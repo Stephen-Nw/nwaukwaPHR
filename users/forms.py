@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
+from .models import NewUserData
 
 
 class NewUserForm(UserCreationForm):
@@ -8,5 +9,5 @@ class NewUserForm(UserCreationForm):
     email_address = forms.EmailField()
 
     class Meta:
-        model = User
-        fields = ['username', 'first_name', 'last_name']
+        model = NewUserData
+        fields = ['first_name', 'last_name']

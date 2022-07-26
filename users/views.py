@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
+from .forms import NewUserForm
 
 # Create your views here.
 
@@ -11,5 +12,5 @@ def register(request):
         if form.is_valid():
             username = form.cleaned_data
     else:
-        form = UserCreationForm()
+        form = NewUserForm()
     return render(request, 'users/register.html', {'form': form})
