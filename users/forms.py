@@ -4,10 +4,6 @@ from .models import NewUserData
 
 
 class NewUserForm(UserCreationForm):
-    first_name = forms.CharField()
-    last_name = forms.CharField()
-    email_address = forms.EmailField()
-
     class Meta:
         model = NewUserData
-        fields = ['first_name', 'last_name']
+        fields = "___all__"
