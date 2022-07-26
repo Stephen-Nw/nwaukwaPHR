@@ -1,9 +1,9 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import NewUserData
+from .models import NewUser
 
 
 class NewUserForm(UserCreationForm):
     class Meta:
-        model = NewUserData
+        model = NewUser
         fields = "___all__"
