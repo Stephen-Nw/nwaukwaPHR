@@ -8,7 +8,7 @@ from .forms import NewUserForm
 def register(request):
     """New user registration form"""
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = NewUserForm(request.POST)
         if form.is_valid():
             username = form.cleaned_data
     else:
