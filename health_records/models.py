@@ -10,6 +10,12 @@ class UserProfile(models.Model):
     GRAND = 'GRP'
     EXTEND = 'EXT'
 
+    DR = 'DR'
+    MR = 'MR'
+    MS = 'MS'
+    MRS = 'MRS'
+    NONE = 'NONE'
+
     RELATIONSHIP_CHOICES = [
         (SELF, 'Self'),
         (SPOUSE, 'Spouse'),
@@ -19,8 +25,19 @@ class UserProfile(models.Model):
         (EXTEND, 'Extended Family'),
     ]
 
-    first_name = models.CharField('First Name', max_length=50)
-    last_name = models.CharField('Last Name', max_length=50)
+    PREFIX_CHOICES = [
+        (DR, 'Dr.'),
+        (MR, 'Mr.'),
+        (MS, 'Ms.'),
+        (MRS, 'Mrs.'),
+        (NONE, ' '),
+
+    ]
+
+    prefix = models.CharField('Prefix', max_length=2,
+                              blank=True, choices=PREFIX_CHOICES, default=NONE)
+    first_name = models.CharField('First Name', max_length=50, blank=False)
+    last_name = models.CharField('Last Name', max_length=50, blank=False)
     date_of_birth = models.DateField('Date of Birth')
     height_ft = models.IntegerField('Height(ft)', max_length=2)
     height_in = models.IntegerField('Height(in)', max_length=2)
