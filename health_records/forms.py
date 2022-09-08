@@ -16,3 +16,22 @@ class UserProfileForm(ModelForm):
             'pcp_address': 'Provider Address', 'pcp_number': 'Provider Number', 'emergency_contact': 'Emergency Contact',
             'emergency_phone': 'Contact Phone', 'relationship': 'Relationship'
         }
+        widgets = {
+            'prefix': forms.Select(attrs={'class': 'form-control'}),
+            'first_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'date_of_birth': forms.DateTimeInput(attrs={'class': 'form-control'}),
+            'height_ft': forms.TextInput(attrs={'class': 'form-control'}),
+            'height_in': forms.TextInput(attrs={'class': 'form-control'}),
+            'weight_lbs': forms.TextInput(attrs={'class': 'form-control'}),
+            'blood_type': forms.TextInput(attrs={'class': 'form-control'}),
+            'pcp_address': forms.TextInput(attrs={'class': 'form-control'}),
+            'pcp_number': forms.TextInput(attrs={'class': 'form-control'}),
+            'emergency_contact': forms.TextInput(attrs={'class': 'form-control'}),
+            'emergency_phone': forms.TextInput(attrs={'class': 'form-control'}),
+            'relationship': forms.Select(attrs={'class': 'form-control'}),
+            'address': forms.TextInput(attrs={'class': 'form-control'}),
+            'email': forms.TextInput(attrs={'class': 'form-control'}),
+            'phone': forms.TextInput(attrs={'class': 'form-control'}),
+            'pcp': forms.TextInput(attrs={'class': 'form-control'}),
+        }
