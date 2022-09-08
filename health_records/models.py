@@ -60,3 +60,6 @@ class UserProfile(models.Model):
         'Emergency Phone Number', max_length=20, blank=True, null=True)
     relationship = models.CharField(
         'Relationship', max_length=3, choices=RELATIONSHIP_CHOICES, default=SELF)
+
+    def __str__(self):
+        return self.first_name + ' ' + self.last_name
