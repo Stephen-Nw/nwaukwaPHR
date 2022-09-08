@@ -9,3 +9,5 @@ from .models import UserProfile
 class UserProfileAdmin(admin.ModelAdmin):
     list_display = ('first_name', 'last_name',
                     'date_of_birth', 'email', 'phone')
+    ordering = ('last_name', 'first_name')
+    # list_filter = ('last_name')
