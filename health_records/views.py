@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .forms import UserProfileForm
 
 # Create your views here.
 
@@ -8,4 +9,5 @@ def homepage(request):
 
 
 def user_profile(request):
-    return render(request, 'user_profile.html')
+    form = UserProfileForm()
+    return render(request, 'user_profile.html', {'form': form})
