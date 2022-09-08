@@ -40,20 +40,23 @@ class UserProfile(models.Model):
     last_name = models.CharField('Last Name', max_length=50, blank=False)
     date_of_birth = models.DateField('Date of Birth', blank=False)
     height_ft = models.IntegerField('Height(ft)', blank=False)
-    height_in = models.IntegerField('Height(in)', blank=True)
+    height_in = models.IntegerField('Height(in)', blank=True, null=True)
     weight_lbs = models.IntegerField('Weight(lbs)', blank=False)
     blood_type = models.CharField('Blood Type', max_length=10, blank=False)
-    address = models.CharField('Address', max_length=150, blank=True)
-    email = models.EmailField('Email', max_length=150, blank=True)
-    phone = models.CharField('Contact Phone', max_length=20, blank=True)
-    pcp = models.CharField('Primary Care Provider', max_length=120, blank=True)
+    address = models.CharField(
+        'Address', max_length=150, blank=True, null=True)
+    email = models.EmailField('Email', max_length=150, blank=True, null=True)
+    phone = models.CharField(
+        'Contact Phone', max_length=20, blank=True, null=True)
+    pcp = models.CharField('Primary Care Provider',
+                           max_length=120, blank=True, null=True)
     pcp_address = models.CharField(
-        'Provider Address', max_length=120, blank=True)
+        'Provider Address', max_length=120, blank=True, null=True)
     pcp_number = models.IntegerField(
-        'Provider Number', blank=True)
+        'Provider Number', blank=True, null=True)
     emergency_contact = models.CharField(
-        'Emergency Contact', max_length=50, blank=True)
+        'Emergency Contact', max_length=50, blank=True, null=True)
     emergency_phone = models.CharField(
-        'Emergency Phone Number', max_length=20, blank=True)
+        'Emergency Phone Number', max_length=20, blank=True, null=True)
     relationship = models.CharField(
         'Relationship', max_length=3, choices=RELATIONSHIP_CHOICES, default=SELF)
