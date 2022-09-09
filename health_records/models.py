@@ -3,6 +3,16 @@ from django.db import models
 
 class UserProfile(models.Model):
 
+    O_POS = 'O+'
+    O_NEG = 'O-'
+    A_POS = 'A+'
+    A_NEG = 'A-'
+    B_POS = 'B+'
+    B_NEG = 'B-'
+    AB_POS = 'AB+'
+    AB_NEG = 'AB-'
+    UNK = 'UNK'
+
     SELF = 'SF'
     SPOUSE = 'SO'
     CHILD = 'CH'
@@ -15,6 +25,18 @@ class UserProfile(models.Model):
     MS = 'MS'
     MRS = 'MRS'
     NONE = 'NONE'
+
+    BLOOD_TYPES_CHOICES = [
+        (O_POS, 'O Positive'),
+        (O_NEG, 'O Negative'),
+        (A_POS, 'A Positive'),
+        (A_NEG, 'A Negative'),
+        (B_POS, 'B Positive'),
+        (B_NEG, 'B Negative'),
+        (AB_POS, 'AB Positive'),
+        (AB_NEG, 'AB Negative'),
+        (UNK, 'Unknown'),
+    ]
 
     RELATIONSHIP_CHOICES = [
         (SELF, 'Self'),
@@ -42,7 +64,8 @@ class UserProfile(models.Model):
     height_ft = models.IntegerField('Height(ft)', blank=False)
     height_in = models.IntegerField('Height(in)', blank=True, null=True)
     weight_lbs = models.IntegerField('Weight(lbs)', blank=False)
-    blood_type = models.CharField('Blood Type', max_length=10, blank=False)
+    blood_type = models.CharField(
+        'Blood Type', max_length=10, blank=False, choices=BLOOD_TYPES_CHOICES)
     address = models.CharField(
         'Address', max_length=150, blank=True, null=True)
     email = models.EmailField('Email', max_length=150, blank=True, null=True)

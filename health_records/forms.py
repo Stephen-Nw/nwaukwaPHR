@@ -24,7 +24,7 @@ class UserProfileForm(ModelForm):
             'height_ft': forms.TextInput(attrs={'class': 'form-control'}),
             'height_in': forms.TextInput(attrs={'class': 'form-control'}),
             'weight_lbs': forms.TextInput(attrs={'class': 'form-control'}),
-            'blood_type': forms.TextInput(attrs={'class': 'form-control'}),
+            'blood_type': forms.Select(attrs={'class': 'form-control'}),
             'pcp_address': forms.TextInput(attrs={'class': 'form-control'}),
             'pcp_number': forms.TextInput(attrs={'class': 'form-control'}),
             'emergency_contact': forms.TextInput(attrs={'class': 'form-control'}),
