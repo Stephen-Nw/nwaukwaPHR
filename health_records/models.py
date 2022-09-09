@@ -3,6 +3,7 @@ from django.db import models
 
 class UserProfile(models.Model):
 
+    # Blood type options
     O_POS = 'O+'
     O_NEG = 'O-'
     A_POS = 'A+'
@@ -13,6 +14,7 @@ class UserProfile(models.Model):
     AB_NEG = 'AB-'
     UNK = 'UNK'
 
+    # User options
     SELF = 'SF'
     SPOUSE = 'SO'
     CHILD = 'CH'
@@ -20,6 +22,7 @@ class UserProfile(models.Model):
     GRAND = 'GRP'
     EXTEND = 'EXT'
 
+    # Prefix options
     DR = 'DR'
     MR = 'MR'
     MS = 'MS'
