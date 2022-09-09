@@ -10,4 +10,4 @@ def homepage(request):
 
 def user_profile(request):
     form = UserProfileForm()
-    return render(request, 'user_profile.html', {'form': form})
+    return render(request, 'health_records/user_profile.html', {'form': form})
