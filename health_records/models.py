@@ -16,6 +16,12 @@ class AllergyProfile(models.Model):
         (OTH, 'Other'),
     ]
 
+    allergy_type = models.Model()
+    allergy_name = models.Model()
+    allergy_reaction = models.Model()
+    allergy_intervention = models.Model()
+    allergy_notes = models.Model()
+
 
 class UserProfile(models.Model):
 
