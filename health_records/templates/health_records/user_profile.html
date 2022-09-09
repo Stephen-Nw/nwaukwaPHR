@@ -1,11 +1,15 @@
 {% extends 'base/base.html' %}
 
 {% block title %}
-    <title>Register</title>
+    <title>Profile</title>
 {% endblock title %}
 
 
 {% block content %}
-    {% include 'navbar.html' %}
+{% include 'navbar.html' %}
+
+<div class="shadow p-4 mb-5 bg-body rounded">
     <h2>User Profile Form Goes Here</h2>
+    {{ form }}
+</div>
 {% endblock content %}
