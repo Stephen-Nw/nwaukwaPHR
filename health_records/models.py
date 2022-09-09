@@ -1,6 +1,22 @@
 from django.db import models
 
 
+class AllergyProfile(models.Model):
+
+    # Allergy options
+    FOOD = 'FOOD'
+    MED = 'MED'
+    ENV = 'ENV'
+    OTH = 'OTH'
+
+    ALLERGY_CHOICES = [
+        (FOOD, 'Food'),
+        (MED, 'Medication'),
+        (ENV, 'Environmental'),
+        (OTH, 'Other'),
+    ]
+
+
 class UserProfile(models.Model):
 
     # Blood type options
