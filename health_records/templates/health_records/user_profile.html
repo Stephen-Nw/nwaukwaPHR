@@ -12,9 +12,9 @@
 <div class="shadow p-4 mb-5 bg-body rounded">
     <h2>User Profile Form</h2>
 
-    <form action="" method="POST" class="card p-3 mt-5">
+    <form action="" method="POST" class="card p-3">
         {% csrf_token %}
-        {{form}}
+        {{form|crispy}}
     </form>
 </div>
 {% endblock content %}
