@@ -10,11 +10,102 @@
 {% include 'navbar.html' %}
 
 <div class="shadow p-4 mb-5 bg-body rounded">
-    <h2>User Profile Form</h2>
+    {% comment %} <h2>User Profile Form</h2> {% endcomment %}
 
     <form action="" method="POST" class="card p-3">
         {% csrf_token %}
-        {{form|crispy}}
+
+        <fieldset>
+            <legend>Personal Information</legend>
+            <div class="row">
+                <div class="col-2">
+                    {{ form.relationship|as_crispy_field}}
+                </div>            
+            </div>
+
+            <div class="row">
+                <div class="col-2">
+                    {{ form.prefix|as_crispy_field}}
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-2">
+                    {{ form.first_name|as_crispy_field}}
+                </div>
+                <div class="col-2">
+                    {{ form.last_name|as_crispy_field}}
+                </div>
+                <div class="col-2">
+                    {{ form.date_of_birth|as_crispy_field}}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-3">
+                    {{ form.height_ft|as_crispy_field}}
+                </div>
+                <div class="col-3">
+                    {{ form.height_in|as_crispy_field}}
+                </div>
+                <div class="col-3">
+                    {{ form.weight_lbs|as_crispy_field}}
+                </div>
+                <div class="col-3">
+                    {{ form.blood_type|as_crispy_field}}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                    {{ form.address|as_crispy_field}}
+                </div>
+                <div class="col-4">
+                    {{ form.email|as_crispy_field}}
+                </div>
+                <div class="col-4">
+                    {{ form.phone|as_crispy_field}}
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset style="border-style: solid; border-color: #F00;">
+            <legend>Provider Information</legend>
+            <div class="row">
+                <div class="col-3">
+                    {{ form.pcp|as_crispy_field}}
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-4">
+                    {{ form.pcp_address|as_crispy_field}}
+                </div>
+                <div class="col-4">
+                    {{ form.pcp_number|as_crispy_field}}
+                </div>            
+            </div>
+        </fieldset>
+        
+
+        <fieldset>
+            <legend>Emergency Contact Information</legend>
+            <div class="row">
+                <div class="col-4">
+                    {{ form.emergency_contact|as_crispy_field}}
+                </div>
+                <div class="col-4">
+                    {{ form.emergency_phone|as_crispy_field}}
+                </div>            
+            </div>
+        </fieldset>
+        
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        <input type="Submit" value="Submit" class="btn btn-primary btn-sm">
+
+
+
     </form>
 </div>
 {% endblock content %}
