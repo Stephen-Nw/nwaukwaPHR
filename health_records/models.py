@@ -16,11 +16,14 @@ class AllergyProfile(models.Model):
         (OTH, 'Other'),
     ]
 
-    allergy_type = models.Model()
-    allergy_name = models.Model()
-    allergy_reaction = models.Model()
-    allergy_intervention = models.Model()
-    allergy_notes = models.Model()
+    allergy_type = models.CharField(
+        'Type', max_length=5, blank=False, choices=ALLERGY_CHOICES)
+    allergy_name = models.CharField('Name', max_length=50, blank=False)
+    allergy_reaction = models.CharField(
+        'Allergic Reaction', max_length=150, blank=False)
+    allergy_intervention = models.TextField(
+        'Intervention/Treatment (Optional)', blank=True)
+    allergy_notes = models.TextField('Additional Notes', blank=True)
 
 
 class UserProfile(models.Model):
