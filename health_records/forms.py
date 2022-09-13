@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import UserProfile
+from .models import UserProfile, AllergyProfile
 
 
 # Create a user profile form based on user profile model
@@ -34,4 +34,18 @@ class UserProfileForm(ModelForm):
             'email': forms.TextInput(attrs={'class': 'form-control'}),
             'phone': forms.TextInput(attrs={'class': 'form-control'}),
             'pcp': forms.TextInput(attrs={'class': 'form-control'}),
+        }
+
+
+class AllergyProfileForm(ModelForm):
+    class Meta:
+        model = AllergyProfile
+        fields = ('allergy_type', 'allergy_reaction',
+                  'allergy_intervention', 'allergy_notes')
+        labels = {
+            'allergy_type': 'Type',
+            'allergy_name': 'Allergic Substance',
+            'allergy_reaction': 'Allergic Reaction',
+            'allergy_intervention': 'Intervention/Treatment (Optional)',
+            'allergy_notes': 'Additional Notes',
         }
