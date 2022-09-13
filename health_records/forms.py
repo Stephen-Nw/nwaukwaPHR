@@ -37,6 +37,7 @@ class UserProfileForm(ModelForm):
         }
 
 
+# Create an allergy profile form based on the allergy profile model
 class AllergyProfileForm(ModelForm):
     class Meta:
         model = AllergyProfile
