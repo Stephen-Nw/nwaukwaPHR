@@ -1,6 +1,7 @@
 from django.db import models
 
 
+# Model based on user's allergies
 class AllergyProfile(models.Model):
 
     # Allergy options
@@ -27,6 +28,7 @@ class AllergyProfile(models.Model):
     allergy_notes = models.TextField('Additional Notes', blank=True)
 
 
+# Model to set up user's profile
 class UserProfile(models.Model):
 
     # Blood type options
