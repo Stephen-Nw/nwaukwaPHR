@@ -19,4 +19,4 @@ class AllergyProfileAdmin(admin.ModelAdmin):
     list_display = ('allergy_type', 'allergy_name',
                     'allergy_reaction', 'allergy_intervention', 'allergy_notes')
     ordering = ('allergy_type', 'allergy_reaction')
-    search_fields = ('allergy_type')
+    search_fields = ('allergy_type',)
