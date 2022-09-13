@@ -18,11 +18,12 @@ class AllergyProfile(models.Model):
 
     allergy_type = models.CharField(
         'Allergy Type', max_length=5, blank=False, choices=ALLERGY_CHOICES)
-    allergy_name = models.CharField('Name', max_length=50, blank=False)
+    allergy_name = models.CharField(
+        'Allergic Substance', max_length=50, blank=False)
     allergy_reaction = models.CharField(
         'Allergic Reaction', max_length=150, blank=False)
     allergy_intervention = models.TextField(
-        'Intervention/Treatment (Optional)', blank=True)
+        'Intervention/Treatment', blank=True)
     allergy_notes = models.TextField('Additional Notes', blank=True)
 
 
