@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import UserProfile
+from .models import UserProfile, AllergyProfile
 
 # Register your models here.
 # admin.site.register(UserProfile)
@@ -12,3 +12,11 @@ class UserProfileAdmin(admin.ModelAdmin):
     ordering = ('last_name', 'first_name')
     # list_filter = ('last_name',)
     search_fields = ('last_name', 'first_name')
+
+
+@admin.register(AllergyProfile)
+class AllergyProfileAdmin(admin.ModelAdmin):
+    list_display = ('allergy_type', 'allergy_name',
+                    'allergy_reaction', 'allergy_intervention', 'allergy_notes')
+    ordering = ('allergy_type', 'allergy_reaction')
+    search_fields = ('allergy_type')
