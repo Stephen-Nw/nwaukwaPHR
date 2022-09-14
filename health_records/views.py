@@ -14,3 +14,7 @@ def user_profile(request):
 def user_allergy(request):
     form = AllergyProfileForm
     return render(request, 'health_records/user_allergy.html', {'form': form})
+
+
+def user_meds(request):
+    return render(request, "health_records/user_meds.html")
