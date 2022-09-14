@@ -9,41 +9,38 @@
 {% block content %}
 {% include 'navbar.html' %}
 
-{% comment %} {{ form }} {% endcomment %}
-
 <div class="shadow p-4 mb-5 bg-body rounded">
-    <h2>Allergy Form</h2>  
-
+      
+    <h2>Allergy Form</h2>
     <form action="" method=POST class="card p-3">
+        
         {% csrf_token %}
         <div class="row">
             <div class="col-2">
                 {{ form.allergy_type|as_crispy_field }}
             </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
+            <div class="col-2">
                 {{ form.allergy_name|as_crispy_field }}
             </div>
-        </div>
-        <div class="row">
-            <div class="col-8">
+            <div class="col-3">
                 {{ form.allergy_reaction|as_crispy_field }}
             </div>
         </div>
         <div class="row">
-            <div class="col-8">
+            <div class="col-7">
                 {{ form.allergy_intervention|as_crispy_field }}
             </div>
         </div>
         <div class="row">
-            <div class="col-8">
+            <div class="col-7">
                 {{ form.allergy_notes|as_crispy_field }}
             </div>
         </div>
+        <fieldset>
+            <input type="Submit" value="Submit" class="btn btn-primary btn-lg">
+        </fieldset>
     </form>    
 </div>
 
 {% endblock content %}
 
-// TODO: Finish formatting form so that it dispays nicely
