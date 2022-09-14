@@ -1,7 +1,5 @@
 from django.shortcuts import render
-from .forms import UserProfileForm
-
-# Create your views here.
+from .forms import UserProfileForm, AllergyProfileForm
 
 
 def homepage(request):
@@ -14,4 +12,5 @@ def user_profile(request):
 
 
 def user_allergy(request):
-    return render(request, 'health_records/user_allergy.html')
+    form = AllergyProfileForm
+    return render(request, 'health_records/user_allergy.html', {'form': form})
