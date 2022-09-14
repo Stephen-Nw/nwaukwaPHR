@@ -7,3 +7,7 @@ urlpatterns = [
     path('user_allergy', views.user_allergy, name='user_allergy'),
     path('user_meds', views.user_meds, name='user_meds'),
 ]
+
+
+# TODO: Add slug to user_allergy because user may have multiple allergies
+# TODO: Add slug to user_meds because user may have multiple meds
