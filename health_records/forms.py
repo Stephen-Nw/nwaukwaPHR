@@ -41,7 +41,7 @@ class UserProfileForm(ModelForm):
 class AllergyProfileForm(ModelForm):
     class Meta:
         model = AllergyProfile
-        fields = ('allergy_type', 'allergy_reaction',
+        fields = ('allergy_type', 'allergy_reaction', 'allergy_name',
                   'allergy_intervention', 'allergy_notes')
         labels = {
             'allergy_type': 'Type',
