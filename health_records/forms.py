@@ -50,3 +50,13 @@ class AllergyProfileForm(ModelForm):
             'allergy_intervention': 'Intervention/Treatment (Optional)',
             'allergy_notes': 'Additional Notes',
         }
+        widgets = {
+            'allergy_type': forms.Select(attrs={'class': 'form-control'}),
+            'allergy_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'allergy_reaction': forms.TextInput(attrs={'class': 'form-control'}),
+            'allergy_intervention': forms.Textarea(attrs={'class': 'form-control'}),
+            'allergy_notes': forms.Textarea(attrs={'class': 'form-control'}),
+        }
+
+
+# //TODO: Add widget to allergy form
