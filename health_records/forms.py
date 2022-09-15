@@ -57,3 +57,6 @@ class AllergyProfileForm(ModelForm):
             'allergy_intervention': forms.Textarea(attrs={'class': 'form-control'}),
             'allergy_notes': forms.Textarea(attrs={'class': 'form-control'}),
         }
+
+
+# TODO: Create Medication Profile form
