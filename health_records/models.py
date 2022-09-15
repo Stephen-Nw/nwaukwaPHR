@@ -14,6 +14,9 @@ class MedicationProfile(models.Model):
         'Duration', max_length=50, blank=True, null=True)
     med_ongoing = models.BooleanField('Currently Taking', default=False)
 
+    def __str__(self):
+        return self.med_name
+
 
 # Model based on user's allergies
 class AllergyProfile(models.Model):
