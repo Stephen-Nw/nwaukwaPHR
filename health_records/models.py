@@ -1,6 +1,20 @@
 from django.db import models
 
 
+# Model based on user's med list
+class MedicationProfile(models.Model):
+    med_name = models.CharField('Medication Name', max_length=50, blank=False)
+    med_indication = models.CharField(
+        'Clinical Indication', max_length=150, blank=False)
+    med_dosage = models.CharField('Dosage', max_length=50, blank=False)
+    med_frequency = models.CharField('Frequency', max_length=50, blank=False)
+    med_start = models.CharField(
+        'Start Date', max_length=50, blank=True, null=True)
+    med_duration = models.CharField(
+        'Duration', max_length=50, blank=True, null=True)
+    med_ongoing = models.BooleanField('Currently Taking', default=False)
+
+
 # Model based on user's allergies
 class AllergyProfile(models.Model):
 
@@ -24,8 +38,8 @@ class AllergyProfile(models.Model):
     allergy_reaction = models.CharField(
         'Allergic Reaction', max_length=150, blank=False)
     allergy_intervention = models.TextField(
-        'Intervention/Treatment', blank=True)
-    allergy_notes = models.TextField('Additional Notes', blank=True)
+        'Intervention/Treatment', blank=True, null=True)
+    allergy_notes = models.TextField('Additional Notes', blank=True, null=True)
 
 
 # Model to set up user's profile
