@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import UserProfile, AllergyProfile
+from .models import MedicationProfile, UserProfile, AllergyProfile
 
 
 # Create a user profile form based on user profile model
@@ -59,4 +59,27 @@ class AllergyProfileForm(ModelForm):
         }
 
 
-# TODO: Create Medication Profile form
+# Create a medication profile form based on the medication profile model
+class MedicationProfileForm(ModelForm):
+    class Meta:
+        model = MedicationProfile
+        fields = ('med_name', 'med_indication', 'med_dosage',
+                  'med_frequency', 'med_start', 'med_duration', 'med_ongoing')
+        labels = {
+            'med_name': 'Medication Name',
+            'med_indication': 'Clinical Indication',
+            'med_dosage': 'Dosage',
+            'med_frequency': 'Frequency',
+            'med_start': 'Start Date',
+            'med_duration': 'Duration',
+            'med_ongoing': 'Currently Taking',
+        }
+        widgets = {
+            'med_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'med_indication': forms.TextInput(attrs={'class': 'form-control'}),
+            'med_dosage': forms.TextInput(attrs={'class': 'form-control'}),
+            'med_frequency': forms.TextInput(attrs={'class': 'form-control'}),
+            'med_start': forms.TextInput(attrs={'class': 'form-control'}),
+            'med_duration': forms.TextInput(attrs={'class': 'form-control'}),
+            'med_ongoing': forms.CheckboxInput(attrs={'class': 'form-control'}),
+        }
