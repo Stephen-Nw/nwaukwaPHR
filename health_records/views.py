@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import UserProfileForm, AllergyProfileForm
+from .forms import UserProfileForm, AllergyProfileForm, MedicationProfileForm
 
 
 def homepage(request):
@@ -12,9 +12,10 @@ def user_profile(request):
 
 
 def user_allergy(request):
-    form = AllergyProfileForm
+    form = AllergyProfileForm()
     return render(request, 'health_records/user_allergy.html', {'form': form})
 
 
 def user_meds(request):
-    return render(request, "health_records/user_meds.html")
+    form = MedicationProfileForm()
+    return render(request, "health_records/user_meds.html", {'form': form})
