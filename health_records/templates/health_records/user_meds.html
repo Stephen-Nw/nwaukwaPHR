@@ -15,11 +15,41 @@
     <form action="" method=POST class="card p-3">
         
         {% csrf_token %}
-        <h3>Form goes here...</h3>
-        <fieldset>
-            {{ form }}
+        <div class="row">
+            <div class="col-2">
+                {{ form.med_name|as_crispy_field }}
+            </div>
+            <div class="col-3">
+                {{ form.med_indication|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                {{ form.med_dosage|as_crispy_field }}
+            </div>
+            <div class="col-3">
+                {{ form.med_frequency|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                {{ form.med_start|as_crispy_field }}
+            </div>
+            <div class="col-3">
+                {{ form.med_duration|as_crispy_field }}
+            </div>
+        </div>
+        <div class="checkbox-inline">
+            {{ form.med_ongoing|as_crispy_field }}
+        </div>
+        <div>
             <input type="Submit" value="Submit" class="btn btn-primary btn-lg">
-        </fieldset>
+        </div>
+
+
+                
+
+
     </form>    
 </div>
 
