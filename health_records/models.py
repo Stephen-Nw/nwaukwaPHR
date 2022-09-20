@@ -1,6 +1,20 @@
 from django.db import models
 
 
+# Model based on user's appointments
+class AppointmentProfile(models.Model):
+    appt_date = models.CharField('Date', max_length=50, blank=False)
+    appt_time = models.CharField('Time', max_length=50, blank=False)
+    appt_provider = models.CharField('Provider', max_length=50, blank=False)
+    appt_address = models.CharField(
+        'Address', max_length=300, blank=True, null=True)
+    appt_instructions = models.TextField(
+        'Additional Instructions', blank=True, null=True)
+
+    def __str__(self):
+        return self.appt_date
+
+
 # Model based on user's med list
 class MedicationProfile(models.Model):
     med_name = models.CharField('Medication Name', max_length=50, blank=False)
