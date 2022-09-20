@@ -1,5 +1,6 @@
+from re import A
 from django.shortcuts import render
-from .forms import UserProfileForm, AllergyProfileForm, MedicationProfileForm
+from .forms import UserProfileForm, AllergyProfileForm, MedicationProfileForm, AppointmentProfileForm
 
 
 def homepage(request):
@@ -22,4 +23,5 @@ def user_meds(request):
 
 
 def user_appointments(request):
-    return render(request, 'health_records/user_appointments.html')
+    form = AppointmentProfileForm()
+    return render(request, 'health_records/user_appointments.html', {'form': form})
