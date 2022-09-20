@@ -17,8 +17,8 @@ class AppointmentProfileForm(ModelForm):
             'appt_instructions': 'Additional Instructions',
         }
         widgets = {
-            'appt_date': forms.TextInput(attrs={'class': 'form-control'}),
-            'appt_time': forms.TextInput(attrs={'class': 'form-control'}),
+            'appt_date': forms.DateInput(attrs={'class': 'form-control'}),
+            'appt_time': forms.TimeInput(attrs={'class': 'form-control'}),
             'appt_provider': forms.TextInput(attrs={'class': 'form-control'}),
             'appt_address': forms.TextInput(attrs={'class': 'form-control'}),
             'appt_instructions': forms.TextInput(attrs={'class': 'form-control'}),
