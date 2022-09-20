@@ -21,7 +21,7 @@ class AppointmentProfileForm(ModelForm):
             'appt_time': forms.TimeInput(attrs={'class': 'form-control'}),
             'appt_provider': forms.TextInput(attrs={'class': 'form-control'}),
             'appt_address': forms.TextInput(attrs={'class': 'form-control'}),
-            'appt_instructions': forms.TextInput(attrs={'class': 'form-control'}),
+            'appt_instructions': forms.Textarea(attrs={'class': 'form-control'}),
         }
 
 
