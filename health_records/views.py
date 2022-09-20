@@ -19,3 +19,7 @@ def user_allergy(request):
 def user_meds(request):
     form = MedicationProfileForm()
     return render(request, "health_records/user_meds.html", {'form': form})
+
+
+def user_appointments(request):
+    return render(request, 'health_records/user_appointments.html')
