@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import UserProfile, AllergyProfile, MedicationProfile
+from .models import UserProfile, AllergyProfile, MedicationProfile, AppointmentProfile
 
 # Register your models here.
 # admin.site.register(UserProfile)
@@ -27,3 +27,10 @@ class MedicationProfileAdmin(admin.ModelAdmin):
     list_display = ('med_name', 'med_indication', 'med_dosage',
                     'med_frequency', 'med_start', 'med_duration', 'med_ongoing')
     search_fields = ('med_name',)
+
+
+@admin.register(AppointmentProfile)
+class AppointmentProfileAdmin(admin.ModelAdmin):
+    list_display = ('appt_date', 'appt_time', 'appt_provider',
+                    'appt_address', 'appt_instructions')
+    search_fields = ('appt_provider',)
