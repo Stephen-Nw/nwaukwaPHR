@@ -1,6 +1,28 @@
 from django import forms
 from django.forms import ModelForm
-from .models import MedicationProfile, UserProfile, AllergyProfile
+from .models import MedicationProfile, UserProfile, AllergyProfile, AppointmentProfile
+
+
+# Create a user appointment form based on the user appointment model
+class AppointmentProfileForm(ModelForm):
+    class Meta:
+        model = AppointmentProfile
+        fields = ('appt_date', 'appt_time', 'appt_provider',
+                  'appt_address', 'appt_instructions')
+        labels = {
+            'appt_date': 'Date',
+            'appt_time': 'Time',
+            'appt_provider': 'Provider',
+            'appt_address': 'Address',
+            'appt_instructions': 'Additional Instructions',
+        }
+        widgets = {
+            'appt_date': forms.TextInput(attrs={'class': 'form-control'}),
+            'appt_time': forms.TextInput(attrs={'class': 'form-control'}),
+            'appt_provider': forms.TextInput(attrs={'class': 'form-control'}),
+            'appt_address': forms.TextInput(attrs={'class': 'form-control'}),
+            'appt_instructions': forms.TextInput(attrs={'class': 'form-control'}),
+        }
 
 
 # Create a user profile form based on user profile model
