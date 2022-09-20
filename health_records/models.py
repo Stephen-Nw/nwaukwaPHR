@@ -3,7 +3,7 @@ from django.db import models
 
 # Model based on user's appointments
 class AppointmentProfile(models.Model):
-    appt_date = models.CharField('Date', max_length=50, blank=False)
+    appt_date = models.DateField('Date', blank=False)
     appt_time = models.CharField('Time', max_length=50, blank=False)
     appt_provider = models.CharField('Provider', max_length=50, blank=False)
     appt_address = models.CharField(
