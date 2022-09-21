@@ -25,3 +25,7 @@ def user_meds(request):
 def user_appointments(request):
     form = AppointmentProfileForm()
     return render(request, 'health_records/user_appointments.html', {'form': form})
+
+
+def user_medHx(request):
+    return render(request, 'health_records/user_medHx.html')
