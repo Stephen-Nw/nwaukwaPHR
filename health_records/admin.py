@@ -34,3 +34,6 @@ class AppointmentProfileAdmin(admin.ModelAdmin):
     list_display = ('appt_date', 'appt_time', 'appt_provider',
                     'appt_address', 'appt_instructions')
     search_fields = ('appt_provider',)
+
+
+# TODO: Create med hx admin

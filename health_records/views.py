@@ -29,3 +29,6 @@ def user_appointments(request):
 
 def user_medHx(request):
     return render(request, 'health_records/user_medHx.html')
+
+
+# TODO: Create and render medhx instance

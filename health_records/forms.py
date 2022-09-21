@@ -105,3 +105,5 @@ class MedicationProfileForm(ModelForm):
             'med_duration': forms.TextInput(attrs={'class': 'form-control'}),
             'med_ongoing': forms.CheckboxInput(attrs={'class': 'form-control'}),
         }
+
+# TODO: Create med hx form
