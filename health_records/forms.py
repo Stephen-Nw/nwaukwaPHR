@@ -110,7 +110,7 @@ class MedicationProfileForm(ModelForm):
 class MedicalHistoryProfileForm(ModelForm):
     class Meta:
         model = MedicalHistoryProfile
-        fields = ('hx_type', 'hx_date', 'hx_diagnosis',
+        fields = ('hx_date', 'hx_type', 'hx_diagnosis',
                   'hx_procedure', 'hx_medications', 'hx_notes')
         labels = {
             'hx_type': 'Type',
