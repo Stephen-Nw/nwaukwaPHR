@@ -1,6 +1,6 @@
 from re import A
 from django.shortcuts import render
-from .forms import UserProfileForm, AllergyProfileForm, MedicationProfileForm, AppointmentProfileForm
+from .forms import UserProfileForm, AllergyProfileForm, MedicationProfileForm, AppointmentProfileForm, MedicalHistoryProfileForm
 
 
 def homepage(request):
@@ -28,7 +28,5 @@ def user_appointments(request):
 
 
 def user_medHx(request):
-    return render(request, 'health_records/user_medHx.html')
-
-
-# TODO: Create and render medhx instance
+    form = MedicalHistoryProfileForm()
+    return render(request, 'health_records/user_medHx.html', {'form': form})
