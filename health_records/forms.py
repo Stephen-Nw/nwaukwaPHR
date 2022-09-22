@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import MedicationProfile, UserProfile, AllergyProfile, AppointmentProfile
+from .models import MedicalHistoryProfile, MedicationProfile, UserProfile, AllergyProfile, AppointmentProfile
 
 
 # Create a user appointment form based on the user appointment model
@@ -106,4 +106,25 @@ class MedicationProfileForm(ModelForm):
             'med_ongoing': forms.CheckboxInput(attrs={'class': 'form-control'}),
         }
 
-# TODO: Create med hx form
+
+class MedicalHistoryProfileForm(ModelForm):
+    class Meta:
+        model = MedicalHistoryProfile
+        fields = ('hx_type', 'hx_date', 'hx_diagnosis',
+                  'hx_procedure', 'hx_medications', 'hx_notes')
+        labels = {
+            'hx_type': 'Type',
+            'hx_date': 'Date',
+            'hx_diagnosis': 'Diagnosis',
+            'hx_procedure': 'Procedure',
+            'hx_medications': 'Medications',
+            'hx_notes': 'Additional Notes'
+        }
+        widgets = {
+            'hx_type': forms.Select(attrs={'class': 'form-control'}),
+            'hx_date': forms.DateInput(attrs={'class': 'form-control'}),
+            'hx_diagnosis': forms.TextInput(attrs={'class': 'form-control'}),
+            'hx_procedure': forms.TextInput(attrs={'class': 'form-control'}),
+            'hx_medications': forms.TextInput(attrs={'class': 'form-control'}),
+            'hx_notes': forms.Textarea(attrs={'class': 'form-control'})
+        }
