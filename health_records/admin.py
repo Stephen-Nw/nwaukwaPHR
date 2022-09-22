@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import UserProfile, AllergyProfile, MedicationProfile, AppointmentProfile
+from .models import MedicalHistoryProfile, UserProfile, AllergyProfile, MedicationProfile, AppointmentProfile
 
 # Register your models here.
 # admin.site.register(UserProfile)
@@ -36,4 +36,8 @@ class AppointmentProfileAdmin(admin.ModelAdmin):
     search_fields = ('appt_provider',)
 
 
-# TODO: Create med hx admin
+@admin.register(MedicalHistoryProfile)
+class MedicalHistoryProfileAdmin(admin.ModelAdmin):
+    list_display = ('hx_type', 'hx_date', 'hx_diagnosis',
+                    'hx_procedure', 'hx_medications', 'hx_notes')
+    search_fields = ('hx_type',)
