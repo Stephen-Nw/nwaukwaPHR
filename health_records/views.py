@@ -30,3 +30,7 @@ def user_appointments(request):
 def user_medHx(request):
     form = MedicalHistoryProfileForm()
     return render(request, 'health_records/user_medHx.html', {'form': form})
+
+
+def user_immunization(request):
+    return render(request, 'health_records/user_immunization.html')
