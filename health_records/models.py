@@ -1,6 +1,31 @@
 from django.db import models
 
 
+# Model based on user's immunization hx
+class ImmunizationProfile(models.Model):
+    # Reaction options
+    Y = 'Y'
+    N = 'N'
+
+    REACTION_CHOICES = [
+        (Y, 'Yes'),
+        (N, 'No'),
+    ]
+
+    vaccine_name = models.CharField(
+        'Vaccine Name', max_length=100, blank=False)
+    vaccine_date = models.DateField('Date Last Received', blank=False)
+    vaccine_reaction = models.CharField(
+        'Adverse Reactions', blank=False, max_length=3, choices=REACTION_CHOICES)
+    vaccine_rxn_if_positive = models.TextField(
+        'Describe reaction (Leave blank if no reaction)', blank=True, null=True)
+    vaccine_next_due = models.DateField('Next Due Date', blank=True)
+    vaccine_notes = models.TextField('Additional Notes', blank=True, null=True)
+
+    def __str__(self):
+        return self.vaccine_name
+
+
 # Model based on user's med/surg hx
 class MedicalHistoryProfile(models.Model):
     # History options
