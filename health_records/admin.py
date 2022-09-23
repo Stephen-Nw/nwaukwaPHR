@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import MedicalHistoryProfile, UserProfile, AllergyProfile, MedicationProfile, AppointmentProfile
+from .models import MedicalHistoryProfile, UserProfile, AllergyProfile, MedicationProfile, AppointmentProfile, ImmunizationProfile
 
 # Register your models here.
 # admin.site.register(UserProfile)
@@ -41,3 +41,10 @@ class MedicalHistoryProfileAdmin(admin.ModelAdmin):
     list_display = ('hx_type', 'hx_date', 'hx_diagnosis',
                     'hx_procedure', 'hx_medications', 'hx_notes')
     search_fields = ('hx_type',)
+
+
+@admin.register(ImmunizationProfile)
+class ImmunizationProfileAdmin(admin.ModelAdmin):
+    list_display = ('vaccine_name', 'vaccine_date', 'vaccine_reaction',
+                    'vaccine_rxn_if_positive', 'vaccine_next_due', 'vaccine_notes')
+    search_fields = ('vaccine_name',)
