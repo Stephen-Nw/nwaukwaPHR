@@ -147,7 +147,7 @@ class ImmunizationProfileForm(ModelForm):
             'vaccine_name': forms.TextInput(attrs={'class': 'form-control'}),
             'vaccine_date': forms.DateInput(attrs={'class': 'form-control'}),
             'vaccine_reaction': forms.Select(attrs={'class': 'form-control'}),
-            'vaccine_rxn_if_positive': forms.Textarea(attrs={'class': 'form-control'}),
+            'vaccine_rxn_if_positive': forms.TextInput(attrs={'class': 'form-control'}),
             'vaccine_next_due': forms.DateInput(attrs={'class': 'form-control'}),
             'vaccine_notes': forms.Textarea(attrs={'class': 'form-control'}),
         }
