@@ -1,6 +1,7 @@
+from dataclasses import fields
 from django import forms
 from django.forms import ModelForm
-from .models import MedicalHistoryProfile, MedicationProfile, UserProfile, AllergyProfile, AppointmentProfile
+from .models import MedicalHistoryProfile, MedicationProfile, UserProfile, AllergyProfile, ImmunizationProfile, AppointmentProfile
 
 
 # Create a user appointment form based on the user appointment model
@@ -127,4 +128,26 @@ class MedicalHistoryProfileForm(ModelForm):
             'hx_procedure': forms.TextInput(attrs={'class': 'form-control'}),
             'hx_medications': forms.TextInput(attrs={'class': 'form-control'}),
             'hx_notes': forms.Textarea(attrs={'class': 'form-control'})
+        }
+
+
+class ImmunizationProfileForm(ModelForm):
+    class Meta:
+        model = ImmunizationProfile
+        fields = '__all__'
+        labels = {
+            'vaccine_name': 'Vaccine Name',
+            'vaccine_date': 'Date Last Received',
+            'vaccine_reaction': 'Adverse Reaction',
+            'vaccine_rxn_if_positive': 'Describe reaction (Leave blank if none)',
+            'vaccine_next_due': 'Next Due Date',
+            'vaccine_notes': 'Additional Notes'
+        }
+        widgets = {
+            'vaccine_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'vaccine_date': forms.DateInput(attrs={'class': 'form-control'}),
+            'vaccine_reaction': forms.Select(attrs={'class': 'form-control'}),
+            'vaccine_rxn_if_positive': forms.Textarea(attrs={'class': 'form-control'}),
+            'vaccine_next_due': forms.DateInput(attrs={'class': 'form-control'}),
+            'vaccine_notes': forms.Textarea(attrs={'class': 'form-control'}),
         }
