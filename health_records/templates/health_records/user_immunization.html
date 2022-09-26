@@ -15,9 +15,30 @@
     <form action="" method=POST class="card p-3">
         
         {% csrf_token %}
-        <h2>Immunization form goes here</h2>
-        {{ form }}
-  
+        <div class="row">
+            <div class="col-2">
+                {{ form.vaccine_name|as_crispy_field}}
+            </div>
+            <div class="col-2">
+                {{ form.vaccine_date|as_crispy_field}}
+            </div>
+            <div class="col-2">
+                {{ form.vaccine_next_due|as_crispy_field}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                {{ form.vaccine_reaction|as_crispy_field}}
+            </div>
+            <div class="col-4">
+                {{ form.vaccine_rxn_if_positive|as_crispy_field}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                {{ form.vaccine_notes|as_crispy_field}}
+            </div>            
+        </div> 
         <fieldset>
             <input type="Submit" value="Submit" class="btn btn-primary btn-lg">
         </fieldset>
