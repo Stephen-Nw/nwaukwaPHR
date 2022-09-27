@@ -1,4 +1,51 @@
+from urllib.parse import DefragResult
 from django.db import models
+
+
+# Model based on user's family and social hx
+class FamilySocialProfile(models.Model):
+    # Relationship options
+    SN = 'SN'
+    MD = 'MD'
+    SP = 'SP'
+    WD = 'WD'
+
+    # Vice options
+    Y = 'Y'
+    N = 'N'
+
+    VICE_CHOICES = [
+        (Y, 'Yes'),
+        (N, 'No'),
+    ]
+
+    RELATIONSHIP_CHOICES = [
+        (SN, 'Single'),
+        (MD, 'Married'),
+        (SP, 'Separated'),
+        (WD, 'Widowed'),
+    ]
+
+    status = models.CharField(
+        'Relationship Status', blank=False, max_length=3, choices=RELATIONSHIP_CHOICES)
+    smoker = models.CharField(
+        'Smoker(Y/N)', blank=False, max_length=3, choices=VICE_CHOICES)
+    smoker_duration = models.CharField(
+        'Duration', blank=True, null=True, max_length=15)
+    smoker_frequency = models.CharField(
+        'Frequency', blank=True, null=True, max_length=15)
+    alcohol = models.CharField(
+        'Alcohol(Y/N)', blank=False, max_length=3, choices=VICE_CHOICES)
+    alcohol_duration = models.CharField(
+        'Duration', blank=True, null=True, max_length=15)
+    alcohol_frequency = models.CharField(
+        'Frequency', blank=True, null=True, max_length=15)
+    drug = models.CharField('Recreational Drugs(Y/N)',
+                            blank=False, max_length=3, choices=VICE_CHOICES)
+    drug_names = models.CharField(
+        'Names', blank=True, null=True, max_length=15)
+    drug_duration = models.CharField(
+        'Duration', blank=True, null=True, max_length=15)
 
 
 # Model based on user's immunization hx
