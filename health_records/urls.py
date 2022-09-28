@@ -9,6 +9,8 @@ urlpatterns = [
     path('user_appointments', views.user_appointments, name='user_appointments'),
     path('user_medHx', views.user_medHx, name='user_medHx'),
     path('user_immunization', views.user_immunization, name='user_immunization'),
+    path('user_familySocialHx', views.user_familySocialHx,
+         name='user_familySocialHx'),
 ]
 
 
