@@ -1,0 +1,31 @@
+{% extends 'base/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    <title>Family and Social History</title>
+{% endblock title %}
+
+
+{% block content %}
+{% include 'navbar.html' %}
+
+<div class="shadow p-4 mb-5 bg-body rounded">
+      
+    <h2>Family and Social History Form</h2>
+    <form action="" method=POST class="card p-3">
+        
+        {% csrf_token %}
+         <h3>Family and Social History form goes here...</h3>
+        <fieldset>
+            <input type="Submit" value="Submit" class="btn btn-primary btn-lg">
+        </fieldset>          
+    </form>    
+</div>
+
+{% endblock content %}
+
+
+
+
+
+
