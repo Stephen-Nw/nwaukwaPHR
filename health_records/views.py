@@ -35,3 +35,7 @@ def user_medHx(request):
 def user_immunization(request):
     form = ImmunizationProfileForm()
     return render(request, 'health_records/user_immunization.html', {'form': form})
+
+
+def user_familySocialHx(request):
+    return render(request, 'health_records/user_familySocialHx.html')
