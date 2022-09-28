@@ -1,7 +1,38 @@
 from dataclasses import fields
 from django import forms
 from django.forms import ModelForm
-from .models import MedicalHistoryProfile, MedicationProfile, UserProfile, AllergyProfile, ImmunizationProfile, AppointmentProfile
+from .models import FamilySocialProfile, MedicalHistoryProfile, MedicationProfile, UserProfile, AllergyProfile, ImmunizationProfile, AppointmentProfile
+
+
+# Create a user appointment form based on the user appointment model
+class FamilySocialProfileForm(ModelForm):
+    class Meta:
+        model = FamilySocialProfile
+        fields = '__all__'
+        labels = {
+            'status': 'Relationship Status',
+            'smoker': 'Smoker(Y/N)',
+            'smoker_frequency': 'Frequency',
+            'smoker_duration': 'Duration',
+            'alcohol': 'Alcohol(Y/N)',
+            'alcohol_duration': 'Duration',
+            'alcohol_frequency': 'Frequency',
+            'drug': 'Recreational Drugs(Y/N)',
+            'drug_names': 'Names',
+            'drug_duration': 'Duration',
+        }
+        widgets = {
+            'status': forms.Select(attrs={'class': 'form-control'}),
+            'smoker': forms.Select(attrs={'class': 'form-control'}),
+            'smoker_frequency': forms.TextInput(attrs={'class': 'form-control'}),
+            'smoker_duration': forms.TextInput(attrs={'class': 'form-control'}),
+            'alcohol': forms.Select(attrs={'class': 'form-control'}),
+            'alcohol_duration': forms.TextInput(attrs={'class': 'form-control'}),
+            'alcohol_frequency': forms.TextInput(attrs={'class': 'form-control'}),
+            'drug': forms.Select(attrs={'class': 'form-control'}),
+            'drug_names': forms.TextInput(attrs={'class': 'form-control'}),
+            'drug_duration': forms.TextInput(attrs={'class': 'form-control'}),
+        }
 
 
 # Create a user appointment form based on the user appointment model
