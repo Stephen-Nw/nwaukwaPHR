@@ -15,11 +15,45 @@
     <form action="" method=POST class="card p-3">
         
         {% csrf_token %}
-         <h3>Family and Social History form goes here...</h3>
-
-        {{ form }}
-
-
+         
+         <div class='row'>
+            <div class='col-2'>
+                {{ form.status|as_crispy_field }}
+            </div>
+         </div>
+         <div class='row'>
+            <div class='col-2'>
+                {{ form.smoker|as_crispy_field }}
+            </div>
+            <div class='col-2'>
+                {{ form.smoker_duration|as_crispy_field }}
+            </div>
+            <div class='col-2'>
+                {{ form.smoker_frequency|as_crispy_field }}
+            </div>
+         </div>
+         <div class='row'>
+            <div class='col-2'>
+                {{ form.alcohol|as_crispy_field }}
+            </div>
+            <div class='col-2'>
+                {{ form.alcohol_duration|as_crispy_field }}
+            </div>
+            <div class='col-2'>
+                {{ form.alcohol_frequency|as_crispy_field }}
+            </div>
+         </div>
+         <div class='row'>
+            <div class='col-2'>
+                {{ form.drug|as_crispy_field }}
+            </div>
+            <div class='col-2'>
+                {{ form.drug_names|as_crispy_field }}
+            </div>
+            <div class='col-2'>
+                {{ form.drug_duration|as_crispy_field }}
+            </div>
+         </div>
         <fieldset>
             <input type="Submit" value="Submit" class="btn btn-primary btn-lg">
         </fieldset>          
