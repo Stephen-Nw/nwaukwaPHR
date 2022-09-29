@@ -1,4 +1,3 @@
-from urllib.parse import DefragResult
 from django.db import models
 
 
@@ -46,6 +45,8 @@ class FamilySocialProfile(models.Model):
         'Names', blank=True, null=True, max_length=15)
     drug_duration = models.CharField(
         'Duration', blank=True, null=True, max_length=15)
+    user_instance = models.OneToOneField(
+        'UserProfile', blank=True, null=True, on_delete=models.CASCADE)
 
 
 # Model based on user's immunization hx
@@ -68,6 +69,8 @@ class ImmunizationProfile(models.Model):
         'Describe reaction (Leave blank if none)', max_length=50, blank=True, null=True)
     vaccine_next_due = models.DateField('Next Due Date', blank=True)
     vaccine_notes = models.TextField('Additional Notes', blank=True, null=True)
+    user_instance = models.ForeignKey(
+        'UserProfile', blank=True, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.vaccine_name
@@ -93,6 +96,8 @@ class MedicalHistoryProfile(models.Model):
     hx_medications = models.CharField(
         'Medications', max_length=300, blank=True, null=True)
     hx_notes = models.TextField('Additional Notes', blank=True, null=True)
+    user_instance = models.ForeignKey(
+        'UserProfile', blank=True, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.hx_date
@@ -107,6 +112,8 @@ class AppointmentProfile(models.Model):
         'Address', max_length=300, blank=True, null=True)
     appt_instructions = models.TextField(
         'Additional Instructions', blank=True, null=True)
+    user_instance = models.ForeignKey(
+        'UserProfile', blank=True, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.appt_date
@@ -124,6 +131,8 @@ class MedicationProfile(models.Model):
     med_duration = models.CharField(
         'Duration', max_length=50, blank=True, null=True)
     med_ongoing = models.BooleanField('Currently Taking', default=False)
+    user_instance = models.ForeignKey(
+        'UserProfile', blank=True, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.med_name
@@ -154,6 +163,11 @@ class AllergyProfile(models.Model):
     allergy_intervention = models.TextField(
         'Intervention/Treatment', blank=True, null=True)
     allergy_notes = models.TextField('Additional Notes', blank=True, null=True)
+    user_instance = models.ForeignKey(
+        'UserProfile', blank=True, null=True, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.allergy_name
 
 
 # Model to set up user's profile
