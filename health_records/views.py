@@ -1,5 +1,5 @@
 from re import A
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import UserProfileForm, AllergyProfileForm, MedicationProfileForm, AppointmentProfileForm, MedicalHistoryProfileForm, ImmunizationProfileForm, FamilySocialProfileForm
 
 
@@ -8,8 +8,14 @@ def homepage(request):
 
 
 def user_profile(request):
-    form = UserProfileForm()
-    return render(request, 'health_records/user_profile.html', {'form': form})
+    if request.method == "POST":
+        form = UserProfileForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('user_medHx')
+    else:
+        form = UserProfileForm()
+        return render(request, 'health_records/user_profile.html', {'form': form})
 
 
 def user_allergy(request):
