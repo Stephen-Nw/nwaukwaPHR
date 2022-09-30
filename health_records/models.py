@@ -67,7 +67,7 @@ class ImmunizationProfile(models.Model):
         'Adverse Reactions', blank=False, max_length=3, choices=REACTION_CHOICES)
     vaccine_rxn_if_positive = models.CharField(
         'Describe reaction (Leave blank if none)', max_length=50, blank=True, null=True)
-    vaccine_next_due = models.DateField('Next Due Date', blank=True)
+    vaccine_next_due = models.DateField('Next Due Date', blank=True, null=True)
     vaccine_notes = models.TextField('Additional Notes', blank=True, null=True)
     user_information = models.ForeignKey(
         'UserProfile', blank=True, null=True, on_delete=models.CASCADE)
