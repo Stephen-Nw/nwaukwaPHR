@@ -115,9 +115,6 @@ class AppointmentProfile(models.Model):
     user_information = models.ForeignKey(
         'UserProfile', blank=True, null=True, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.appt_date
-
 
 # Model based on user's med list
 class MedicationProfile(models.Model):
