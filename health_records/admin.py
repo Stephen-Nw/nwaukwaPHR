@@ -16,7 +16,7 @@ class UserProfileAdmin(admin.ModelAdmin):
 
 @admin.register(AllergyProfile)
 class AllergyProfileAdmin(admin.ModelAdmin):
-    list_display = ('allergy_type', 'allergy_name',
+    list_display = ('user_information', 'allergy_type', 'allergy_name',
                     'allergy_reaction', 'allergy_intervention', 'allergy_notes')
     ordering = ('allergy_type', 'allergy_reaction')
     search_fields = ('allergy_type',)
@@ -24,28 +24,28 @@ class AllergyProfileAdmin(admin.ModelAdmin):
 
 @admin.register(MedicationProfile)
 class MedicationProfileAdmin(admin.ModelAdmin):
-    list_display = ('med_name', 'med_indication', 'med_dosage',
+    list_display = ('user_information', 'med_name', 'med_indication', 'med_dosage',
                     'med_frequency', 'med_start', 'med_duration', 'med_ongoing')
     search_fields = ('med_name',)
 
 
 @admin.register(AppointmentProfile)
 class AppointmentProfileAdmin(admin.ModelAdmin):
-    list_display = ('appt_date', 'appt_time', 'appt_provider',
+    list_display = ('user_information', 'appt_date', 'appt_time', 'appt_provider',
                     'appt_address', 'appt_instructions')
     search_fields = ('appt_provider',)
 
 
 @admin.register(MedicalHistoryProfile)
 class MedicalHistoryProfileAdmin(admin.ModelAdmin):
-    list_display = ('hx_type', 'hx_date', 'hx_diagnosis',
+    list_display = ('user_information', 'hx_type', 'hx_date', 'hx_diagnosis',
                     'hx_procedure', 'hx_medications', 'hx_notes')
     search_fields = ('hx_type',)
 
 
 @admin.register(ImmunizationProfile)
 class ImmunizationProfileAdmin(admin.ModelAdmin):
-    list_display = ('vaccine_name', 'vaccine_date', 'vaccine_reaction',
+    list_display = ('user_information', 'vaccine_name', 'vaccine_date', 'vaccine_reaction',
                     'vaccine_rxn_if_positive', 'vaccine_next_due', 'vaccine_notes')
     search_fields = ('vaccine_name',)
 
@@ -54,5 +54,5 @@ class ImmunizationProfileAdmin(admin.ModelAdmin):
 class FamilySocialProfileAdmin(admin.ModelAdmin):
     fields = ('status', ('smoker', 'smoker_duration', 'smoker_frequency'), ('alcohol',
                                                                             'alcohol_duration', 'alcohol_frequency'), ('drug', 'drug_names', 'drug_duration'))
-    list_display = ('status', 'smoker', 'smoker_duration', 'smoker_frequency', 'alcohol',
+    list_display = ('user_information', 'status', 'smoker', 'smoker_duration', 'smoker_frequency', 'alcohol',
                     'alcohol_duration', 'alcohol_frequency', 'drug', 'drug_names', 'drug_duration')
