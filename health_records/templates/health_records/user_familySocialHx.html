@@ -54,9 +54,13 @@
                 {{ form.drug_duration|as_crispy_field }}
             </div>
          </div>
-        <fieldset>
-            <input type="Submit" value="Submit" class="btn btn-primary btn-lg">
-        </fieldset>          
+
+         <fieldset>
+            <a class="btn btn-outline-primary" href="{% url 'user_allergy' %}">Previous</a>
+            <input type="Submit" value="Submit" class="btn btn-primary">
+            <a class="btn btn-outline-primary" href="{% url 'user_immunization' %}">Next</a>
+        </fieldset>
+
     </form>    
 </div>
 

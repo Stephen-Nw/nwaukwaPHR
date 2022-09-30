@@ -36,9 +36,13 @@
                 {{ form.allergy_notes|as_crispy_field }}
             </div>
         </div>
+
         <fieldset>
-            <input type="Submit" value="Submit" class="btn btn-primary btn-lg">
+            <a class="btn btn-outline-primary" href="{% url 'user_meds' %}">Previous</a>
+            <input type="Submit" value="Submit" class="btn btn-primary">
+            <a class="btn btn-outline-primary" href="{% url 'user_familySocialHx' %}">Next</a>
         </fieldset>
+
     </form>    
 </div>
 

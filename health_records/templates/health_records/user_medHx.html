@@ -37,8 +37,10 @@
             </div>
         </div>
         <fieldset>
-            <input type="Submit" value="Submit" class="btn btn-primary btn-lg">
-        </fieldset>          
+            <a class="btn btn-outline-primary" href="{% url 'user_profile' %}">Previous</a>
+            <input type="Submit" value="Submit" class="btn btn-primary">
+            <a class="btn btn-outline-primary" href="{% url 'user_meds' %}">Next</a>
+        </fieldset>         
     </form>    
 </div>
 
