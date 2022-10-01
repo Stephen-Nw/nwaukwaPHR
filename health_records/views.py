@@ -8,6 +8,8 @@ def homepage(request):
 
 
 def user_profile(request):
+    """Retrieves data from user profile form and save to db if POST request. 
+    Displ;ay blank user profile form if GET request"""
     if request.method == "POST":
         form = UserProfileForm(request.POST)
         if form.is_valid():
@@ -16,6 +18,16 @@ def user_profile(request):
     else:
         form = UserProfileForm()
         return render(request, 'health_records/user_profile.html', {'form': form})
+
+
+def user_medHx(request):
+    form = MedicalHistoryProfileForm(request.POST)
+    if form.is_valid():
+        form.save()
+        return redirect('user_meds')
+    else:
+        form = MedicalHistoryProfileForm()
+        return render(request, 'health_records/user_medHx.html', {'form': form})
 
 
 def user_allergy(request):
@@ -31,11 +43,6 @@ def user_meds(request):
 def user_appointments(request):
     form = AppointmentProfileForm()
     return render(request, 'health_records/user_appointments.html', {'form': form})
-
-
-def user_medHx(request):
-    form = MedicalHistoryProfileForm()
-    return render(request, 'health_records/user_medHx.html', {'form': form})
 
 
 def user_immunization(request):
