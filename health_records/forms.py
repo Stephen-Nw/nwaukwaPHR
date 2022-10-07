@@ -92,54 +92,7 @@ class UserProfileForm(ModelForm):
         }
 
 
-# Create an allergy profile form based on the allergy profile model
-class AllergyProfileForm(ModelForm):
-    class Meta:
-        model = AllergyProfile
-        fields = ('allergy_type', 'allergy_reaction', 'allergy_name',
-                  'allergy_intervention', 'allergy_notes')
-        labels = {
-            'allergy_type': 'Type',
-            'allergy_name': 'Allergic Substance',
-            'allergy_reaction': 'Allergic Reaction',
-            'allergy_intervention': 'Intervention/Treatment (Optional)',
-            'allergy_notes': 'Additional Notes',
-        }
-        widgets = {
-            'allergy_type': forms.Select(attrs={'class': 'form-control'}),
-            'allergy_name': forms.TextInput(attrs={'class': 'form-control'}),
-            'allergy_reaction': forms.TextInput(attrs={'class': 'form-control'}),
-            'allergy_intervention': forms.Textarea(attrs={'class': 'form-control'}),
-            'allergy_notes': forms.Textarea(attrs={'class': 'form-control'}),
-        }
-
-
 # Create a medication profile form based on the medication profile model
-class MedicationProfileForm(ModelForm):
-    class Meta:
-        model = MedicationProfile
-        fields = ('med_name', 'med_indication', 'med_dosage',
-                  'med_frequency', 'med_start', 'med_duration', 'med_ongoing')
-        labels = {
-            'med_name': 'Medication Name',
-            'med_indication': 'Clinical Indication',
-            'med_dosage': 'Dosage',
-            'med_frequency': 'Frequency',
-            'med_start': 'Start Date',
-            'med_duration': 'Duration',
-            'med_ongoing': 'Currently Taking',
-        }
-        widgets = {
-            'med_name': forms.TextInput(attrs={'class': 'form-control'}),
-            'med_indication': forms.TextInput(attrs={'class': 'form-control'}),
-            'med_dosage': forms.TextInput(attrs={'class': 'form-control'}),
-            'med_frequency': forms.TextInput(attrs={'class': 'form-control'}),
-            'med_start': forms.TextInput(attrs={'class': 'form-control'}),
-            'med_duration': forms.TextInput(attrs={'class': 'form-control'}),
-            'med_ongoing': forms.CheckboxInput(attrs={'class': 'form-control'}),
-        }
-
-
 class MedicalHistoryProfileForm(ModelForm):
     u_name = forms.ModelChoiceField(
         queryset=UserProfile.objects.all())
@@ -181,6 +134,58 @@ class MedicalHistoryProfileForm(ModelForm):
 
     # def save(self, commit=True):
     #     return super(MedicalHistoryProfileForm, self).save(commit=commit)
+
+
+# Create a medication profile form based on the medication profile model
+class MedicationProfileForm(ModelForm):
+    u_name = forms.ModelChoiceField(
+        queryset=UserProfile.objects.all())
+
+    class Meta:
+        model = MedicationProfile
+        fields = ('med_name', 'med_indication', 'med_dosage',
+                  'med_frequency', 'med_start', 'med_duration', 'med_ongoing', 'u_name')
+        labels = {
+            'med_name': 'Medication Name',
+            'med_indication': 'Clinical Indication',
+            'med_dosage': 'Dosage',
+            'med_frequency': 'Frequency',
+            'med_start': 'Start Date',
+            'med_duration': 'Duration',
+            'med_ongoing': 'Currently Taking',
+        }
+        widgets = {
+            'med_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'med_indication': forms.TextInput(attrs={'class': 'form-control'}),
+            'med_dosage': forms.TextInput(attrs={'class': 'form-control'}),
+            'med_frequency': forms.TextInput(attrs={'class': 'form-control'}),
+            'med_start': forms.TextInput(attrs={'class': 'form-control'}),
+            'med_duration': forms.TextInput(attrs={'class': 'form-control'}),
+            'med_ongoing': forms.CheckboxInput(attrs={'class': 'form-control'}),
+            'u_name': forms.Select(attrs={'class': 'form-control'}),
+        }
+
+
+# Create an allergy profile form based on the allergy profile model
+class AllergyProfileForm(ModelForm):
+    class Meta:
+        model = AllergyProfile
+        fields = ('allergy_type', 'allergy_reaction', 'allergy_name',
+                  'allergy_intervention', 'allergy_notes')
+        labels = {
+            'allergy_type': 'Type',
+            'allergy_name': 'Allergic Substance',
+            'allergy_reaction': 'Allergic Reaction',
+            'allergy_intervention': 'Intervention/Treatment (Optional)',
+            'allergy_notes': 'Additional Notes',
+        }
+        widgets = {
+            'allergy_type': forms.Select(attrs={'class': 'form-control'}),
+            'allergy_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'allergy_reaction': forms.TextInput(attrs={'class': 'form-control'}),
+            'allergy_intervention': forms.Textarea(attrs={'class': 'form-control'}),
+            'allergy_notes': forms.Textarea(attrs={'class': 'form-control'}),
+        }
 
 
 class ImmunizationProfileForm(ModelForm):
