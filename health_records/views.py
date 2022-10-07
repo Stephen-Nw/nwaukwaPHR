@@ -50,20 +50,38 @@ def user_meds(request):
 
 
 def user_allergy(request):
-    form = AllergyProfileForm()
-    return render(request, 'health_records/user_allergy.html', {'form': form})
+    if request.method == "POST":
+        form = AllergyProfileForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('user_familySocialHx')
+    else:
+        form = AllergyProfileForm()
+        return render(request, 'health_records/user_allergy.html', {'form': form})
+
+
+def user_familySocialHx(request):
+    if request.method == "POST":
+        form = FamilySocialProfileForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('user_immunization')
+    else:
+        form = FamilySocialProfileForm()
+        return render(request, 'health_records/user_familySocialHx.html', {'form': form})
+
+
+def user_immunization(request):
+    if request.method == "POST":
+        form = ImmunizationProfileForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('user_test')
+    else:
+        form = ImmunizationProfileForm()
+        return render(request, 'health_records/user_immunization.html', {'form': form})
 
 
 def user_appointments(request):
     form = AppointmentProfileForm()
     return render(request, 'health_records/user_appointments.html', {'form': form})
-
-
-def user_immunization(request):
-    form = ImmunizationProfileForm()
-    return render(request, 'health_records/user_immunization.html', {'form': form})
-
-
-def user_familySocialHx(request):
-    form = FamilySocialProfileForm()
-    return render(request, 'health_records/user_familySocialHx.html', {'form': form})
