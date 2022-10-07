@@ -38,14 +38,20 @@ def user_medHx(request):
         return render(request, 'health_records/user_medHx.html', {'form': form})
 
 
+def user_meds(request):
+    if request.method == "POST":
+        form = MedicationProfileForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('user_allergy')
+    else:
+        form = MedicationProfileForm()
+        return render(request, "health_records/user_meds.html", {'form': form})
+
+
 def user_allergy(request):
     form = AllergyProfileForm()
     return render(request, 'health_records/user_allergy.html', {'form': form})
-
-
-def user_meds(request):
-    form = MedicationProfileForm()
-    return render(request, "health_records/user_meds.html", {'form': form})
 
 
 def user_appointments(request):
