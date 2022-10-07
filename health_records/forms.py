@@ -168,10 +168,13 @@ class MedicationProfileForm(ModelForm):
 
 # Create an allergy profile form based on the allergy profile model
 class AllergyProfileForm(ModelForm):
+    u_name = forms.ModelChoiceField(
+        queryset=UserProfile.objects.all())
+
     class Meta:
         model = AllergyProfile
         fields = ('allergy_type', 'allergy_reaction', 'allergy_name',
-                  'allergy_intervention', 'allergy_notes')
+                  'allergy_intervention', 'allergy_notes', 'u_name')
         labels = {
             'allergy_type': 'Type',
             'allergy_name': 'Allergic Substance',
@@ -185,6 +188,7 @@ class AllergyProfileForm(ModelForm):
             'allergy_reaction': forms.TextInput(attrs={'class': 'form-control'}),
             'allergy_intervention': forms.Textarea(attrs={'class': 'form-control'}),
             'allergy_notes': forms.Textarea(attrs={'class': 'form-control'}),
+            'u_name': forms.Select(attrs={'class': 'form-control'}),
         }
 
 
