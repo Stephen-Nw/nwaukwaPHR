@@ -200,6 +200,9 @@ class FamilySocialProfileForm(ModelForm):
 
 
 class ImmunizationProfileForm(ModelForm):
+    u_name = forms.ModelChoiceField(
+        queryset=UserProfile.objects.all())
+
     class Meta:
         model = ImmunizationProfile
         fields = '__all__'
@@ -209,7 +212,8 @@ class ImmunizationProfileForm(ModelForm):
             'vaccine_reaction': 'Adverse Reaction',
             'vaccine_rxn_if_positive': 'Describe reaction (Leave blank if none)',
             'vaccine_next_due': 'Next Due Date',
-            'vaccine_notes': 'Additional Notes'
+            'vaccine_notes': 'Additional Notes',
+            'u_name': 'Test '
         }
         widgets = {
             'vaccine_name': forms.TextInput(attrs={'class': 'form-control'}),
@@ -218,4 +222,5 @@ class ImmunizationProfileForm(ModelForm):
             'vaccine_rxn_if_positive': forms.TextInput(attrs={'class': 'form-control'}),
             'vaccine_next_due': forms.DateInput(attrs={'class': 'form-control'}),
             'vaccine_notes': forms.Textarea(attrs={'class': 'form-control'}),
+            'u_name': forms.Select(attrs={'class': 'form-control'}),
         }

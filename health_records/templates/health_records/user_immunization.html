@@ -39,6 +39,11 @@
                 {{ form.vaccine_notes|as_crispy_field}}
             </div>            
         </div>
+        <div class="row">
+            <div class="col-6">
+                {{ form.u_name|as_crispy_field}}
+            </div>
+        </div>
 
         <fieldset>
             <a class="btn btn-outline-primary" href="{% url 'user_familySocialHx' %}">Previous</a>
