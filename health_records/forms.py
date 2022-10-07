@@ -6,37 +6,6 @@ from .models import FamilySocialProfile, MedicalHistoryProfile, MedicationProfil
 
 
 # Create a user appointment form based on the user appointment model
-class FamilySocialProfileForm(ModelForm):
-    class Meta:
-        model = FamilySocialProfile
-        fields = '__all__'
-        labels = {
-            'status': 'Relationship Status',
-            'smoker': 'Smoker(Y/N)',
-            'smoker_frequency': 'Frequency',
-            'smoker_duration': 'Duration',
-            'alcohol': 'Alcohol(Y/N)',
-            'alcohol_duration': 'Duration',
-            'alcohol_frequency': 'Frequency',
-            'drug': 'Recreational Drugs(Y/N)',
-            'drug_names': 'Names',
-            'drug_duration': 'Duration',
-        }
-        widgets = {
-            'status': forms.Select(attrs={'class': 'form-control'}),
-            'smoker': forms.Select(attrs={'class': 'form-control'}),
-            'smoker_frequency': forms.TextInput(attrs={'class': 'form-control'}),
-            'smoker_duration': forms.TextInput(attrs={'class': 'form-control'}),
-            'alcohol': forms.Select(attrs={'class': 'form-control'}),
-            'alcohol_duration': forms.TextInput(attrs={'class': 'form-control'}),
-            'alcohol_frequency': forms.TextInput(attrs={'class': 'form-control'}),
-            'drug': forms.Select(attrs={'class': 'form-control'}),
-            'drug_names': forms.TextInput(attrs={'class': 'form-control'}),
-            'drug_duration': forms.TextInput(attrs={'class': 'form-control'}),
-        }
-
-
-# Create a user appointment form based on the user appointment model
 class AppointmentProfileForm(ModelForm):
     class Meta:
         model = AppointmentProfile
@@ -153,6 +122,7 @@ class MedicationProfileForm(ModelForm):
             'med_start': 'Start Date',
             'med_duration': 'Duration',
             'med_ongoing': 'Currently Taking',
+            'u_name': 'Test '
         }
         widgets = {
             'med_name': forms.TextInput(attrs={'class': 'form-control'}),
@@ -181,6 +151,7 @@ class AllergyProfileForm(ModelForm):
             'allergy_reaction': 'Allergic Reaction',
             'allergy_intervention': 'Intervention/Treatment (Optional)',
             'allergy_notes': 'Additional Notes',
+            'u_name': 'Test '
         }
         widgets = {
             'allergy_type': forms.Select(attrs={'class': 'form-control'}),
@@ -188,6 +159,42 @@ class AllergyProfileForm(ModelForm):
             'allergy_reaction': forms.TextInput(attrs={'class': 'form-control'}),
             'allergy_intervention': forms.Textarea(attrs={'class': 'form-control'}),
             'allergy_notes': forms.Textarea(attrs={'class': 'form-control'}),
+            'u_name': forms.Select(attrs={'class': 'form-control'}),
+        }
+
+
+# Create a family and social form based on the user appointment model
+class FamilySocialProfileForm(ModelForm):
+    u_name = forms.ModelChoiceField(
+        queryset=UserProfile.objects.all())
+
+    class Meta:
+        model = FamilySocialProfile
+        fields = '__all__'
+        labels = {
+            'status': 'Relationship Status',
+            'smoker': 'Smoker(Y/N)',
+            'smoker_frequency': 'Frequency',
+            'smoker_duration': 'Duration',
+            'alcohol': 'Alcohol(Y/N)',
+            'alcohol_duration': 'Duration',
+            'alcohol_frequency': 'Frequency',
+            'drug': 'Recreational Drugs(Y/N)',
+            'drug_names': 'Names',
+            'drug_duration': 'Duration',
+            'u_name': 'Test '
+        }
+        widgets = {
+            'status': forms.Select(attrs={'class': 'form-control'}),
+            'smoker': forms.Select(attrs={'class': 'form-control'}),
+            'smoker_frequency': forms.TextInput(attrs={'class': 'form-control'}),
+            'smoker_duration': forms.TextInput(attrs={'class': 'form-control'}),
+            'alcohol': forms.Select(attrs={'class': 'form-control'}),
+            'alcohol_duration': forms.TextInput(attrs={'class': 'form-control'}),
+            'alcohol_frequency': forms.TextInput(attrs={'class': 'form-control'}),
+            'drug': forms.Select(attrs={'class': 'form-control'}),
+            'drug_names': forms.TextInput(attrs={'class': 'form-control'}),
+            'drug_duration': forms.TextInput(attrs={'class': 'form-control'}),
             'u_name': forms.Select(attrs={'class': 'form-control'}),
         }
 
