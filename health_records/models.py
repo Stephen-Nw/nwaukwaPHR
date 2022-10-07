@@ -76,33 +76,6 @@ class ImmunizationProfile(models.Model):
         return self.vaccine_name
 
 
-# Model based on user's med/surg hx
-class MedicalHistoryProfile(models.Model):
-    # History options
-    SURG = 'SURG'
-    MED = 'MED'
-
-    HISTORY_CHOICES = [
-        (SURG, 'Surgical'),
-        (MED, 'Medical'),
-    ]
-
-    hx_type = models.CharField(
-        'Type', max_length=5, blank=False, choices=HISTORY_CHOICES)
-    hx_date = models.DateField('Date', blank=False)
-    hx_diagnosis = models.CharField('Diagnosis', max_length=100, blank=False)
-    hx_procedure = models.CharField(
-        'Procedure', max_length=100, blank=True, null=True)
-    hx_medications = models.CharField(
-        'Medications', max_length=300, blank=True, null=True)
-    hx_notes = models.TextField('Additional Notes', blank=True, null=True)
-    user_information = models.ForeignKey(
-        'UserProfile', blank=True, null=True, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.hx_diagnosis
-
-
 # Model based on user's appointments
 class AppointmentProfile(models.Model):
     appt_date = models.DateField('Date', blank=False)
@@ -256,3 +229,34 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.first_name + ' ' + self.last_name
+
+
+# Model based on user's med/surg hx
+class MedicalHistoryProfile(models.Model):
+    # History options
+    SURG = 'SURG'
+    MED = 'MED'
+
+    HISTORY_CHOICES = [
+        (SURG, 'Surgical'),
+        (MED, 'Medical'),
+    ]
+
+    hx_type = models.CharField(
+        'Type', max_length=5, blank=False, choices=HISTORY_CHOICES)
+    hx_date = models.DateField('Date', blank=False)
+    hx_diagnosis = models.CharField('Diagnosis', max_length=100, blank=False)
+    hx_procedure = models.CharField(
+        'Procedure', max_length=100, blank=True, null=True)
+    hx_medications = models.CharField(
+        'Medications', max_length=300, blank=True, null=True)
+    hx_notes = models.TextField('Additional Notes', blank=True, null=True)
+    user_information = models.ForeignKey(
+        UserProfile, blank=True, null=True, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.hx_diagnosis
+
+    @property
+    def user_name(self):
+        return self.UserProfile.first_name

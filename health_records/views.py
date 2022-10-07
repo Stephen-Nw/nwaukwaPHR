@@ -1,15 +1,22 @@
 from re import A
+from django import forms
 from django.shortcuts import render, redirect
 from .forms import UserProfileForm, AllergyProfileForm, MedicationProfileForm, AppointmentProfileForm, MedicalHistoryProfileForm, ImmunizationProfileForm, FamilySocialProfileForm
+from .models import MedicalHistoryProfile, UserProfile
 
 
 def homepage(request):
     return render(request, "health_records/index.html")
 
 
+def user_test(request):
+    med_hx = MedicalHistoryProfile.objects.all()
+    return render(request, 'health_records/user_test.html', {"med_hx": med_hx})
+
+
 def user_profile(request):
     """Retrieves data from user profile form and save to db if POST request. 
-    Displ;ay blank user profile form if GET request"""
+    Display blank user profile form if GET request"""
     if request.method == "POST":
         form = UserProfileForm(request.POST)
         if form.is_valid():
@@ -21,10 +28,11 @@ def user_profile(request):
 
 
 def user_medHx(request):
-    form = MedicalHistoryProfileForm(request.POST)
-    if form.is_valid():
-        form.save()
-        return redirect('user_meds')
+    if request.method == "POST":
+        form = MedicalHistoryProfileForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('user_meds')
     else:
         form = MedicalHistoryProfileForm()
         return render(request, 'health_records/user_medHx.html', {'form': form})

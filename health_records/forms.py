@@ -1,4 +1,5 @@
 from dataclasses import fields
+from re import M
 from django import forms
 from django.forms import ModelForm
 from .models import FamilySocialProfile, MedicalHistoryProfile, MedicationProfile, UserProfile, AllergyProfile, ImmunizationProfile, AppointmentProfile
@@ -140,17 +141,21 @@ class MedicationProfileForm(ModelForm):
 
 
 class MedicalHistoryProfileForm(ModelForm):
+    u_name = forms.ModelChoiceField(
+        queryset=UserProfile.objects.all())
+
     class Meta:
         model = MedicalHistoryProfile
         fields = ('hx_date', 'hx_type', 'hx_diagnosis',
-                  'hx_procedure', 'hx_medications', 'hx_notes')
+                  'hx_procedure', 'hx_medications', 'hx_notes', 'u_name')
         labels = {
             'hx_type': 'Type',
             'hx_date': 'Date',
             'hx_diagnosis': 'Diagnosis',
             'hx_procedure': 'Procedure',
             'hx_medications': 'Medications',
-            'hx_notes': 'Additional Notes'
+            'hx_notes': 'Additional Notes',
+            'u_name': 'Test '
         }
         widgets = {
             'hx_type': forms.Select(attrs={'class': 'form-control'}),
@@ -158,8 +163,24 @@ class MedicalHistoryProfileForm(ModelForm):
             'hx_diagnosis': forms.TextInput(attrs={'class': 'form-control'}),
             'hx_procedure': forms.TextInput(attrs={'class': 'form-control'}),
             'hx_medications': forms.TextInput(attrs={'class': 'form-control'}),
-            'hx_notes': forms.Textarea(attrs={'class': 'form-control'})
+            'hx_notes': forms.Textarea(attrs={'class': 'form-control'}),
+            'u_name': forms.Select(attrs={'class': 'form-control'}),
         }
+
+    # def __init__(self, *args, **kwargs):
+    #     super(MedicalHistoryProfileForm, self).__init__(*args, **kwargs)
+    #     # self.fields['u_name'].initial = "Joe Bloke"
+    #     self.fields['u_name'].initial = UserProfile.first_name
+    #     forms.ModelForm.__init__(self, *args, **kwargs)
+
+    # def __init__(self, *args, **kwargs):
+    #     super(MedicalHistoryProfileForm, self).__init__(*args, **kwargs)
+    #     initial = kwargs.setdefault('initial', {})
+    #     initial['u_name'] = UserProfile.first_name
+    #     forms.ModelForm.__init__(self, *args, **kwargs)
+
+    # def save(self, commit=True):
+    #     return super(MedicalHistoryProfileForm, self).save(commit=commit)
 
 
 class ImmunizationProfileForm(ModelForm):

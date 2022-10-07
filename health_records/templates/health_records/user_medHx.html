@@ -36,6 +36,11 @@
                 {{ form.hx_notes|as_crispy_field}}
             </div>
         </div>
+        <div class="row">
+            <div class="col-6">
+                {{ form.u_name|as_crispy_field}}
+            </div>
+        </div>
         <fieldset>
             <a class="btn btn-outline-primary" href="{% url 'user_profile' %}">Previous</a>
             <input type="Submit" value="Submit" class="btn btn-primary">
