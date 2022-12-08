@@ -1,0 +1,78 @@
+{% extends 'base/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    <title>Family and Social History</title>
+{% endblock title %}
+
+
+{% block content %}
+{% include 'navbar.html' %}
+
+<div class="shadow p-4 mb-5 bg-body rounded">
+      
+    <h2>Family and Social History Form</h2>
+    <form action="" method=POST class="card p-3">
+        
+        {% csrf_token %}
+         
+         <div class='row'>
+            <div class='col-2'>
+                {{ form.status|as_crispy_field }}
+            </div>
+         </div>
+         <div class='row'>
+            <div class='col-2'>
+                {{ form.smoker|as_crispy_field }}
+            </div>
+            <div class='col-2'>
+                {{ form.smoker_duration|as_crispy_field }}
+            </div>
+            <div class='col-2'>
+                {{ form.smoker_frequency|as_crispy_field }}
+            </div>
+         </div>
+         <div class='row'>
+            <div class='col-2'>
+                {{ form.alcohol|as_crispy_field }}
+            </div>
+            <div class='col-2'>
+                {{ form.alcohol_duration|as_crispy_field }}
+            </div>
+            <div class='col-2'>
+                {{ form.alcohol_frequency|as_crispy_field }}
+            </div>
+         </div>
+         <div class='row'>
+            <div class='col-2'>
+                {{ form.drug|as_crispy_field }}
+            </div>
+            <div class='col-2'>
+                {{ form.drug_names|as_crispy_field }}
+            </div>
+            <div class='col-2'>
+                {{ form.drug_duration|as_crispy_field }}
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-6">
+                {{ form.u_name|as_crispy_field}}
+            </div>
+        </div>
+
+         <fieldset>
+            <a class="btn btn-outline-primary" href="{% url 'user_allergy' %}">Previous</a>
+            <input type="Submit" value="Submit" class="btn btn-primary">
+            <a class="btn btn-outline-primary" href="{% url 'user_immunization' %}">Next</a>
+        </fieldset>
+
+    </form>    
+</div>
+
+{% endblock content %}
+
+
+
+
+
+

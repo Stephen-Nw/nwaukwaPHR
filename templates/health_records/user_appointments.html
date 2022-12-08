@@ -1,0 +1,48 @@
+{% extends 'base/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    <title>Appointments</title>
+{% endblock title %}
+
+
+{% block content %}
+{% include 'navbar.html' %}
+
+<div class="shadow p-4 mb-5 bg-body rounded">
+      
+    <h2>Appointments Form</h2>
+    <form action="" method=POST class="card p-3">
+        
+        {% csrf_token %}       
+        <div class="row">
+            <div class="col-2">
+                {{ form.appt_date|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.appt_time|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                {{ form.appt_provider|as_crispy_field }}
+            </div>
+            <div class="col-4">
+                {{ form.appt_address|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                {{ form.appt_instructions|as_crispy_field }}
+            </div>
+        </div>        
+
+
+    </form>    
+</div>
+
+{% endblock content %}
+
+
+
+

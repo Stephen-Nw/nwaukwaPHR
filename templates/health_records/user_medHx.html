@@ -1,0 +1,59 @@
+{% extends 'base/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    <title>Medical History</title>
+{% endblock title %}
+
+
+{% block content %}
+{% include 'navbar.html' %}
+
+<div class="shadow p-4 mb-5 bg-body rounded">
+      
+    <h2>Medical History Form</h2>
+    <form action="" method=POST class="card p-3">
+        
+        {% csrf_token %}
+         <div class="row">
+            <div class="col-1">
+                {{ form.hx_date|as_crispy_field}}
+            </div>
+        <div class="col-1">
+                {{ form.hx_type|as_crispy_field}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                {{ form.hx_diagnosis|as_crispy_field}}
+            </div>
+            <div class="col-4">
+                {{ form.hx_procedure|as_crispy_field}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                {{ form.hx_notes|as_crispy_field}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                {{ form.u_name|as_crispy_field}}
+            </div>
+        </div>
+        <fieldset>
+            <a class="btn btn-outline-primary" href="{% url 'user_profile' %}">Previous</a>
+            <input type="Submit" value="Submit" class="btn btn-primary">
+            <a class="btn btn-outline-primary" href="{% url 'user_meds' %}">Next</a>
+        </fieldset>         
+    </form>    
+</div>
+
+
+{% endblock content %}
+
+
+
+
+
+
