@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserCreationForm
 
 
 def user_login(request):
@@ -6,4 +7,9 @@ def user_login(request):
 
 
 def user_register(request):
-    return render(request, 'accounts/register_user.html')
+    form = UserCreationForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('/login')
+    context = {'form': form}
+    return render(request, 'accounts/register_user.html', context)
