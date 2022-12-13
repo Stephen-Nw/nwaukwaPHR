@@ -13,4 +13,4 @@ def user_register(request):
         form.save()
         return redirect('/login')
     context = {'form': form}
-    return render(request, 'accounts/register_user.html', context)
+    return render(request, 'accounts/user_register.html', context)
