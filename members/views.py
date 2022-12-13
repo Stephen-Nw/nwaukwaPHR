@@ -7,6 +7,7 @@ def user_login(request):
 
 
 def user_register(request):
+    '''Render blank registration form if no user info provided. Add new user to db if registration form is filled and valid.'''
     form = UserCreationForm(request.POST or None)
     if form.is_valid():
         form.save()
