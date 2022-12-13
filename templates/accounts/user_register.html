@@ -6,6 +6,20 @@
 
 
 {% block content %}
+
     {% include 'navbar.html' %}
-    <h2>Registration Form Goes Here</h2>
+
+    <h1>Register</h1>
+
+    <div class="shadow p-4 mb-5 bg-body rounded">
+
+        <form action="{% url "members:register" %}" method="POST">
+
+        {% csrf_token %}
+            {{ form.as_p }}
+        <button type='submit'>Register</button>
+    
+        </form>
+        {% comment %} <p>Already have an account? Please <a href="/login">Login</a></p> {% endcomment %}
+    </div>
 {% endblock content %}
