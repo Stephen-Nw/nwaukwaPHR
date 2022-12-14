@@ -8,14 +8,6 @@ class UserRegisterForm(UserCreationForm):
         model = User
         fields = ('username', 'first_name', 'last_name',
                   'email', 'password1', 'password2')
-        labels = {
-            'Username': 'Username',
-            'first_name': 'First Name',
-            'last_name': 'Last Name',
-            'email': ' Email Address',
-            'password1': 'Password',
-            'password2': 'Re-enter Password',
-        }
         widgets = {
             'username': forms.TextInput(attrs={'class': 'form-control'}),
             'first_name': forms.TextInput(attrs={'class': 'form-control'}),
