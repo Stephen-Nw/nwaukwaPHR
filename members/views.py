@@ -4,7 +4,7 @@ from .forms import UserRegisterForm
 
 
 def user_login(request):
-    return render(request, 'accounts/login.html')
+    return render(request, 'members/login.html')
 
 
 def user_register(request):
@@ -15,4 +15,4 @@ def user_register(request):
         form.save()
         return redirect('/login')
     context = {'form': form}
-    return render(request, 'accounts/user_register.html', context)
+    return render(request, 'members/user_register.html', context)
