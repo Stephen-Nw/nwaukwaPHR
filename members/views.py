@@ -13,6 +13,6 @@ def user_register(request):
     form = UserRegisterForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('/login')
+        return redirect('homepage-info')
     context = {'form': form}
     return render(request, 'members/user_register.html', context)
