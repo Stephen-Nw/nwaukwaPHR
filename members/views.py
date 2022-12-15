@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from .forms import UserRegisterForm
+from django.contrib import messages
 
 
 def user_login(request):
@@ -13,6 +14,8 @@ def user_register(request):
     form = UserRegisterForm(request.POST or None)
     if form.is_valid():
         form.save()
+        messages.success(
+            request, ("You have been successfully registered. Please log in"))
         return redirect('homepage-info')
     context = {'form': form}
     return render(request, 'members/user_register.html', context)
