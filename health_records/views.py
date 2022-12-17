@@ -5,10 +5,6 @@ from .forms import UserProfileForm, AllergyProfileForm, MedicationProfileForm, A
 from .models import MedicalHistoryProfile, UserProfile
 
 
-def homepage(request):
-    return render(request, "health_records/index.html")
-
-
 def user_test(request):
     med_hx = MedicalHistoryProfile.objects.all()
     return render(request, 'health_records/user_test.html', {"med_hx": med_hx})
