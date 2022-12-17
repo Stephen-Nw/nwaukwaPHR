@@ -1,11 +1,10 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
 from .forms import UserRegisterForm
 from django.contrib import messages
 
-
-def user_login(request):
-    return render(request, 'members/login.html')
+# There is no separate user login template, view, or url.
+# This is because the homepage and the user login form are on the same template.
+# Look for user login logic "health_records.views"
 
 
 def user_register(request):
