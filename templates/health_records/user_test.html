@@ -1,8 +1,7 @@
 {% extends 'base/base.html' %}
-{% load crispy_forms_tags %}
 
 {% block title %}
-    <title>Medical History</title>
+    <title>Test Page</title>
 {% endblock title %}
 
 
@@ -13,16 +12,7 @@
       
     <h2>Test page</h2>
 
-
-    {% for history in med_hx %} 
-    {{ history.hx_type }} <br>
-    {{ history.hx_date }} <br>
-    {{ history.hx_diagnosis }} <br>
-    {{ history.user_information.first_name }} <br>
-    <br>
-    <br>
-    <br>
-    {% endfor %} 
+    <p>Dummy page for testing</p>
 </div>
 
 {% endblock content %}

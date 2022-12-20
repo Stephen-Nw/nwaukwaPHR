@@ -9,5 +9,6 @@ app_name = 'members'
 
 urlpatterns = [
     path('user_register', views.user_register, name='register'),
+    path('user_logout', views.user_logout, name='user_logout'),
 
 ]

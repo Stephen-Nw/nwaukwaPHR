@@ -19,6 +19,5 @@ def home_login_view(request):
     return render(request, "health_records/index.html")
 
 
-# TODO: Display signed in user on login
 # TODO: Error logic if incorrect user / password
-# TODO: Move previously logged in notification
+# TODO: Format previously logged in notification - Red, Bold
