@@ -17,3 +17,8 @@ def home_login_view(request):
             "form": form
         }
     return render(request, "health_records/index.html")
+
+
+# TODO: Display signed in user on login
+# TODO: Error logic if incorrect user / password
+# TODO: Move previously logged in notification
