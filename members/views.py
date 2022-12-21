@@ -24,6 +24,8 @@ def user_register(request):
 def user_logout(request):
     if request.method == "POST":
         logout(request)
+        messages.success(
+            request, ("You have been logged out. Please close your browser window."))
         return redirect('home_login')
     return render(request, 'members/logout.html')
 
