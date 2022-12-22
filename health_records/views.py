@@ -89,6 +89,3 @@ def user_immunization(request):
 def user_appointments(request):
     form = AppointmentProfileForm()
     return render(request, 'health_records/user_appointments.html', {'form': form})
-
-
-# TODO: Add login required to views
