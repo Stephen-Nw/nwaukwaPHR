@@ -1,24 +1,66 @@
 {% extends 'base/base.html' %}
 
 
+{% block title %}
+    <title>Logout</title>
+{% endblock title %}
+
+
 {% block content %}
 
-{% if request.user.is_authenticated %}
-<div style='margin-top:30px;'>
+{% include 'navbar.html' %}
+
+<div class="container px-4 px-lg-5">
+
+{% comment %} {% if request.user.is_authenticated %} {% endcomment %}
+{% comment %} <div style='margin-top:30px;'>
     <form action="" method="POST">
     {% csrf_token %}
     <p>Are you sure you want to logout?</p>
     <button type='submit'>Yes, logout.</button>
 
     </form>
+</div> {% endcomment %}
+
+
+
+<div style='margin-top:30px;'>
+    <form action="" method="POST">
+    {% csrf_token %}
+    <p>Are you sure you want to logout?</p>
+    {% comment %} <button type='submit'>Yes, logout.</button> {% endcomment %}
+    <button type='submit' class="btn btn-primary btn-sm">Yes, logout.</button>
+
+    </form>
 </div>
-{% else %}
+
+
+
+
+
+
+
+{% comment %} <div class="row">
+    <div class="col-12">
+        {{ form.username|as_crispy_field }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+        {{ form.password|as_crispy_field }}
+    </div>
+  </div> {% endcomment %}
+
+{% comment %} {% else %}
 <p>You are not logged in. Would you like to <a href="/login/">login</a>?</p>
-{% endif %}
+{% endif %} {% endcomment %}
 
-
+</div>
 
 {% endblock content %}
+
+
+# TODO: Beautify logout page
 
 
 
