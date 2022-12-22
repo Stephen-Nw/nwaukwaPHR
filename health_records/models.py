@@ -260,3 +260,6 @@ class MedicalHistoryProfile(models.Model):
     @property
     def user_name(self):
         return self.UserProfile.first_name
+
+
+# TODO: Daily checkpoint
