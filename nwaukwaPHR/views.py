@@ -21,6 +21,3 @@ def home_login_view(request):
         "form": form
     }
     return render(request, "health_records/index.html", context)
-
-
-# TODO: Format previously logged in notification - Red, Bold
