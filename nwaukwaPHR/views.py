@@ -14,7 +14,7 @@ def home_login_view(request):
             return redirect('user_profile')
         else:
             messages.success(
-                request, ("Your username and/or password is incorrect. Please try again."))
+                request, ("Your username and/or password is incorrect. Please try again or register to create a new account."))
     else:
         form = AuthenticationForm(request)
     context = {
